@@ -1,29 +1,32 @@
 import PropTypes from 'prop-types';
-import {StyledCell, StyledTable} from './transactions.styled';
-import { TransactionsListItem } from './transactionsListItem.jsx';
+import {
+  StyledCell,
+  StyledTable,
+  StyledCelltd,
+  StyledTr,
+} from './transactions.styled';
 
-export function TransactionHistory ({table}){
-    return (
-        <StyledTable>
-  <thead>
-    <tr>
-      <StyledCell>Type</StyledCell>
-      <StyledCell>Amount</StyledCell>
-      <StyledCell>Currency</StyledCell>
-    </tr>
-  </thead>
-  <tbody>
-  {table.map(({id, type, amount, currency}) =>
-    <TransactionsListItem
-      id={id}
-      type={type}
-      amount={amount}
-      currency={currency}
-    />
-    )}
-  </tbody>
-</StyledTable>
-    )
+export function TransactionHistory({ table }) {
+  return (
+    <StyledTable>
+      <thead>
+        <tr>
+          <StyledCell>Type</StyledCell>
+          <StyledCell>Amount</StyledCell>
+          <StyledCell>Currency</StyledCell>
+        </tr>
+      </thead>
+      <tbody>
+        {table.map(({ id, type, amount, currency }) => (
+          <StyledTr key={id}>
+            <StyledCelltd>{type}</StyledCelltd>
+            <StyledCelltd>{amount}</StyledCelltd>
+            <StyledCelltd>{currency}</StyledCelltd>
+          </StyledTr>
+        ))}
+      </tbody>
+    </StyledTable>
+  );
 }
 
 TransactionHistory.propTypes = {
@@ -34,5 +37,5 @@ TransactionHistory.propTypes = {
       amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
     })
-  )
-}
+  ),
+};

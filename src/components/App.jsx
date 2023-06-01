@@ -2,13 +2,13 @@ import data from '../json/data.json';
 import user from '../json/user.json';
 import friends from '../json/friends.json';
 import transactions from '../json/transactions.json';
-import {Profile} from './profile/Profile';
-import StatisticsList from './statistics/statisticsList';
-import {Section} from './statistics/statisticSection';
-import {FriendList} from './friends/friendList';
-import {TransactionHistory} from './transactions/transactionHistory'
+import { Profile } from './profile/Profile';
+// import StatisticsList from './statistics/statisticsList';
+import { Section } from './statistics/statisticSection';
+import { FriendList } from './friends/friendList';
+import { TransactionHistory } from './transactions/transactionHistory';
 
-export default function App () {
+export default function App() {
   return (
     <div
       style={{
@@ -21,26 +21,19 @@ export default function App () {
         backgroundColor: '#dddddd',
       }}
     >
-     <Profile
-     username = {user.username}
-     tag = {user.tag}
-     location = {user.location}
-     avatar = {user.avatar}
-     followers = {user.stats.followers}
-     views = {user.stats.views}
-     likes = {user.stats.likes}
-     />
-    
-    <Section title="UPLOAD STATS">
-      <StatisticsList items={data} />
-    </Section>
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
 
-    <FriendList friends={friends}/>
-        
-    <TransactionHistory table={transactions} />
-    
+      <Section title="UPLOAD STATS" items={data} />
+
+      <FriendList friends={friends} />
+
+      <TransactionHistory table={transactions} />
     </div>
   );
-};
-
-
+}
