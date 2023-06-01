@@ -7,11 +7,7 @@ export function Section({ title, items }) {
     <div className={css.sectionContainer}>
       {title && <p>{title}</p>}
       <ul>
-        {items
-          .filter((item, index, arr) => {
-            return arr.findIndex(i => i.label === item.label) === index;
-          })
-          .map(({ label, percentage, id }) => {
+        {items.map(({ label, percentage, id }) => {
             let randomColor = getRandomColor();
             const divStyle = {
               backgroundColor: randomColor,

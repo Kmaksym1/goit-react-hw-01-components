@@ -28,7 +28,7 @@ ul :last-child {
   border-bottom-right-radius: 10px;
 }
 .item {
-  min-width: 128px;
+  min-width: 102px;
   height: 80px;
   list-style: none;
   display: flex;

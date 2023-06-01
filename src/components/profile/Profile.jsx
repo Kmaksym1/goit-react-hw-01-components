@@ -1,77 +1,26 @@
 import PropTypes from 'prop-types';
-const profile = {
-  boxShadow: '0 0 10px rgba(0,0,0,0.5)',
-  paddingTop: '30px',
-  borderRadius: '10px',
-  backgroundColor: 'white',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginBottom: 30,
-};
-const description = {
-  textAlign: 'center',
-};
-const name = {
-  margin: 30,
-};
-
-const locationStyle = {
-  color: 'gray',
-  fontSize: '30px',
-};
-
-const label = {
-  color: 'gray',
-  fontSize: '20px',
-};
-const quantity = {
-  fontSize: '30px',
-  fontWeight: 'bold',
-};
-
-const avatarStyle = {
-  width: '30%',
-
-  borderRadius: '50%',
-};
-const statss = {
-  backgroundColor: '#d8d6d6',
-  display: 'flex',
-  listStyle: 'none',
-  justifyContent: 'space-around',
-  alignItems: 'center',
-  marginBottom: '0px',
-  paddingLeft: 0,
-  height: 100,
-};
-const liStats = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  textAlign: 'center',
-};
-
+import css from './profile.module.css'
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div style={profile}>
-      <div style={description}>
-        <img src={avatar} alt="User avatar" style={avatarStyle} />
-        <h4 style={name}>{username}</h4>
-        <p style={locationStyle}>@{tag}</p>
-        <p style={locationStyle}>{location}</p>
+    <div className={css.profile}>
+      <div className={css.description}>
+        <img src={avatar} alt="User avatar" className={css.avatarStyle} />
+        <h4 className={css.name}>{username}</h4>
+        <p className={css.locationStyle}>@{tag}</p>
+        <p className={css.locationStyle}>{location}</p>
       </div>
-      <ul style={statss}>
-        <li style={liStats}>
-          <span style={label}>Followers</span>
-          <span style={quantity}>{stats.followers}</span>
+      <ul className={css.statss}>
+        <li className={css.liStats}>
+          <span className={css.label}>Followers</span>
+          <span className={css.quantity}>{stats.followers}</span>
         </li>
-        <li style={liStats}>
-          <span style={label}>Views</span>
-          <span style={quantity}>{stats.views}</span>
+        <li className={css.liStats}>
+          <span className={css.label}>Views</span>
+          <span className={css.quantity}>{stats.views}</span>
         </li>
-        <li style={liStats}>
-          <span style={label}>Likes</span>
-          <span style={quantity}>{stats.likes}</span>
+        <li className={css.liStats}>
+          <span className={css.label}>Likes</span>
+          <span className={css.quantity}>{stats.likes}</span>
         </li>
       </ul>
     </div>
